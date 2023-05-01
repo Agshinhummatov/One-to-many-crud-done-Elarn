@@ -88,7 +88,7 @@ namespace Elearn_temp.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CourseCreateVM model)
-        {
+        {  
             try
             {
                 //IEnumerable<Category> categories = await _categoryService.GetAll();
@@ -216,6 +216,77 @@ namespace Elearn_temp.Areas.Admin.Controllers
 
 
         }
+
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteProductImage(int? id)
+        {
+            if (id == null) return BadRequest();
+
+            bool result = false;
+
+            CourseImage courseImage = await _context.CourseImages.Where(m => m.Id == id).FirstOrDefaultAsync();
+
+            if (courseImage == null) return NotFound();
+
+            var data = await _context.Courses.Include(m => m.CourseImages).FirstOrDefaultAsync(m => m.Id == courseImage.CoruseId);
+
+            if (data.CourseImages.Count > 1)
+            {
+                string path = FileHelper.GetFilePath(_env.WebRootPath, "img", courseImage.Image);
+
+                FileHelper.DeleteFile(path);
+
+                _context.CourseImages.Remove(courseImage);
+
+                await _context.SaveChangesAsync();
+
+                result = true;
+            }
+
+            data.CourseImages.FirstOrDefault().IsMain = true;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(result);
+
+        }
+
+
+
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+
+            if (id == null) return BadRequest();
+
+            ViewBag.authories = await GetAuthoriesAsync(); 
+
+            Course dbCourse = await _courseService.GetFullDataById((int)id);
+
+            if (dbCourse == null) return NotFound();
+
+
+            CourseEditVM model = new()
+            {
+                Id = dbCourse.Id,
+                Name = dbCourse.Name,
+                CountSale = dbCourse.CountSale,
+                Price = dbCourse.Price,
+                AuthorId = dbCourse.AuthorId,
+                Images = dbCourse.CourseImages,
+                Description = dbCourse.Description
+            };
+
+
+            return View(model);
+        }
+
+
+
 
 
         private async Task<SelectList> GetAuthoriesAsync()
