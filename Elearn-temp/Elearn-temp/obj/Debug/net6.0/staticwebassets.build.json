@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4uwaFcSqEmz+6AdbcakJufr94MpgyRvwhyUp9LCHjDk=",
+  "Hash": "0wKPu0jtjMgmrY56qNxvoMGHYWOnT24mSY354mTWaHQ=",
   "Source": "Elearn-temp",
   "BasePath": "_content/Elearn-temp",
   "Mode": "Default",
@@ -26163,6 +26163,23 @@
       "OriginalItemSpec": "wwwroot\\images\\86212ca2-4f71-40d4-a4d3-9b512a11c941_course_3.jpg"
     },
     {
+      "Identity": "C:\\Users\\User-BT\\Desktop\\Asp.net\\Elearn-temp\\Elearn-temp\\Elearn-temp\\wwwroot\\images\\9ada8978-378b-4b6a-95dd-00f985fbc121_course_7.jpg",
+      "SourceId": "Elearn-temp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User-BT\\Desktop\\Asp.net\\Elearn-temp\\Elearn-temp\\Elearn-temp\\wwwroot\\",
+      "BasePath": "_content/Elearn-temp",
+      "RelativePath": "images/9ada8978-378b-4b6a-95dd-00f985fbc121_course_7.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\9ada8978-378b-4b6a-95dd-00f985fbc121_course_7.jpg"
+    },
+    {
       "Identity": "C:\\Users\\User-BT\\Desktop\\Asp.net\\Elearn-temp\\Elearn-temp\\Elearn-temp\\wwwroot\\images\\about_1.jpg",
       "SourceId": "Elearn-temp",
       "SourceType": "Discovered",
@@ -26195,23 +26212,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\b7b71dd4-96f9-4875-89ba-452660dd9337_2e950a3d-9bfe-461f-b845-deae7d5f15d3_117dfb3d-73cb-405b-9bc4-ba70d2c09a24_h3-team-img-4.png"
-    },
-    {
-      "Identity": "C:\\Users\\User-BT\\Desktop\\Asp.net\\Elearn-temp\\Elearn-temp\\Elearn-temp\\wwwroot\\images\\b80b243f-e6da-4f88-b09b-7ec64042c7f7_course_1.jpg",
-      "SourceId": "Elearn-temp",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User-BT\\Desktop\\Asp.net\\Elearn-temp\\Elearn-temp\\Elearn-temp\\wwwroot\\",
-      "BasePath": "_content/Elearn-temp",
-      "RelativePath": "images/b80b243f-e6da-4f88-b09b-7ec64042c7f7_course_1.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\b80b243f-e6da-4f88-b09b-7ec64042c7f7_course_1.jpg"
     },
     {
       "Identity": "C:\\Users\\User-BT\\Desktop\\Asp.net\\Elearn-temp\\Elearn-temp\\Elearn-temp\\wwwroot\\images\\course_1.jpg",
@@ -26401,23 +26401,6 @@
       "OriginalItemSpec": "wwwroot\\images\\course_author_3.jpg"
     },
     {
-      "Identity": "C:\\Users\\User-BT\\Desktop\\Asp.net\\Elearn-temp\\Elearn-temp\\Elearn-temp\\wwwroot\\images\\dbf21c1a-d1b7-4d5d-a978-fd8aa9358c10_course_2.jpg",
-      "SourceId": "Elearn-temp",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User-BT\\Desktop\\Asp.net\\Elearn-temp\\Elearn-temp\\Elearn-temp\\wwwroot\\",
-      "BasePath": "_content/Elearn-temp",
-      "RelativePath": "images/dbf21c1a-d1b7-4d5d-a978-fd8aa9358c10_course_2.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\dbf21c1a-d1b7-4d5d-a978-fd8aa9358c10_course_2.jpg"
-    },
-    {
       "Identity": "C:\\Users\\User-BT\\Desktop\\Asp.net\\Elearn-temp\\Elearn-temp\\Elearn-temp\\wwwroot\\images\\e5c0ff70-fdaf-42af-a4de-939bd8929d73_blog-feature-img-3.jpg",
       "SourceId": "Elearn-temp",
       "SourceType": "Discovered",
@@ -26450,6 +26433,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\elearn.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User-BT\\Desktop\\Asp.net\\Elearn-temp\\Elearn-temp\\Elearn-temp\\wwwroot\\images\\f921f0eb-e495-4dfb-a89b-1df34c00bef9_course_5.jpg",
+      "SourceId": "Elearn-temp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User-BT\\Desktop\\Asp.net\\Elearn-temp\\Elearn-temp\\Elearn-temp\\wwwroot\\",
+      "BasePath": "_content/Elearn-temp",
+      "RelativePath": "images/f921f0eb-e495-4dfb-a89b-1df34c00bef9_course_5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\f921f0eb-e495-4dfb-a89b-1df34c00bef9_course_5.jpg"
     },
     {
       "Identity": "C:\\Users\\User-BT\\Desktop\\Asp.net\\Elearn-temp\\Elearn-temp\\Elearn-temp\\wwwroot\\images\\featured.jpg",

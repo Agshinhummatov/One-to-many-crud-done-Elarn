@@ -233,7 +233,7 @@ namespace Elearn_temp.Areas.Admin.Controllers
 
             if (data.CourseImages.Count > 1)
             {
-                string path = FileHelper.GetFilePath(_env.WebRootPath, "img", courseImage.Image);
+                string path = FileHelper.GetFilePath(_env.WebRootPath, "images", courseImage.Image);
 
                 FileHelper.DeleteFile(path);
 
@@ -253,17 +253,13 @@ namespace Elearn_temp.Areas.Admin.Controllers
         }
 
 
-
-
-
-
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
 
             if (id == null) return BadRequest();
 
-            ViewBag.authories = await GetAuthoriesAsync(); 
+            ViewBag.authories = await GetAuthoriesAsync();
 
             Course dbCourse = await _courseService.GetFullDataById((int)id);
 
@@ -286,15 +282,102 @@ namespace Elearn_temp.Areas.Admin.Controllers
         }
 
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int? id, CourseEditVM updatedCourse)
+        {
+            if (id == null) return BadRequest();
+
+            ViewBag.authories = await GetAuthoriesAsync();
+
+            Course dbCourse = await _context.Courses.AsNoTracking().Include(m => m.CourseImages).Include(m => m.Author).FirstOrDefaultAsync(m => m.Id == id);
+
+            if (dbCourse == null) return NotFound();
+
+            if (!ModelState.IsValid)
+            {
+                updatedCourse.Images = dbCourse.CourseImages;
+                return View(updatedCourse);
+            }
+
+            List<CourseImage> courseImages = new();
+
+            if (updatedCourse.Photos is not null)
+            {
+                foreach (var photo in updatedCourse.Photos)
+                {
+                    if (!photo.CheckFileType("image/"))
+                    {
+                        ModelState.AddModelError("Photo", "File type must be image");
+                        updatedCourse.Images = dbCourse.CourseImages;
+                        return View(updatedCourse);
+                    }
+
+                    if (!photo.CheckFileSize(200))
+                    {
+                        ModelState.AddModelError("Photo", "Image size must be max 200kb");
+                        updatedCourse.Images = dbCourse.CourseImages;
+                        return View(updatedCourse);
+                    }
+                }
+
+
+
+                foreach (var photo in updatedCourse.Photos)
+                {
+                    string fileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
+
+                    string path = FileHelper.GetFilePath(_env.WebRootPath, "images", fileName);
+
+                    await FileHelper.SaveFlieAsync(path, photo);
+
+                    CourseImage courseImage = new()
+                    {
+                        Image = fileName
+                    };
+
+                    courseImages.Add(courseImage);
+                }
+
+                await _context.CourseImages.AddRangeAsync(courseImages);
+            }
+
+            //decimal convertedPrice = decimal.Parse(updatedProduct.Price.Replace(".", ","));
+
+            Course newCourse = new()
+            {
+                Id = dbCourse.Id,
+                Name = updatedCourse.Name,
+                Price = updatedCourse.Price,
+                CountSale = updatedCourse.CountSale,
+                Description = updatedCourse.Description,
+                AuthorId = updatedCourse.AuthorId,
+                CourseImages = courseImages.Count == 0 ? dbCourse.CourseImages : courseImages
+            };
+
+
+            _context.Courses.Update(newCourse);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
+
+      
+
+
 
 
 
         private async Task<SelectList> GetAuthoriesAsync()
         {
 
-            IEnumerable<Author> categories = await _authorService.GetAll();
+            IEnumerable<Author> authores = await _authorService.GetAll();
 
-            return new SelectList(categories, "Id", "Name"); /// bu neynir gedir selectin icindeki Id sini goturur ve nameini getirir mene id gedecek selectin valusuna namde gedecek textine // textine gorede id sini gondere bilecik
+            return new SelectList(authores, "Id", "Name"); /// bu neynir gedir selectin icindeki Id sini goturur ve nameini getirir mene id gedecek selectin valusuna namde gedecek textine // textine gorede id sini gondere bilecik
 
 
         }
